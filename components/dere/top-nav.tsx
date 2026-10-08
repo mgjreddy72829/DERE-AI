@@ -1,4 +1,5 @@
-import { Bell, HelpCircle, Layers } from 'lucide-react'
+import Link from 'next/link'
+import { Bell, HelpCircle, Layers, Sparkles } from 'lucide-react'
 
 export const NAV_TABS = ['Dashboard', 'Projects', 'Materials', 'Contractors'] as const
 export type NavTab = (typeof NAV_TABS)[number]
@@ -49,6 +50,14 @@ export function TopNav({ activeTab, onTabChange }: TopNavProps) {
         </nav>
 
         <div className="ml-auto flex shrink-0 items-center gap-1">
+          <Link
+            href="/studio"
+            className="mr-1 flex items-center gap-1.5 whitespace-nowrap rounded-md border border-border px-3 py-1.5 text-sm text-foreground transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+          >
+            <Sparkles className="size-4 text-accent" aria-hidden="true" />
+            <span className="hidden md:inline">Image Studio</span>
+            <span className="sr-only md:hidden">Image Studio</span>
+          </Link>
           <button
             type="button"
             className="hidden size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground sm:flex"
