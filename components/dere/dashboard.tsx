@@ -9,6 +9,7 @@ import { OptionTabs } from './option-tabs'
 import { AestheticsCard } from './aesthetics-card'
 import { SpatialCard } from './spatial-card'
 import { BudgetCard } from './budget-card'
+import { RoomPreviewCard } from './room-preview-card'
 import { MaterialsView } from './materials-view'
 import { ContractorsView } from './contractors-view'
 import { ProjectsView, type SavedProject } from './projects-view'
@@ -51,6 +52,7 @@ export function Dashboard() {
   const [projects, setProjects] = useState<SavedProject[]>(SEED_PROJECTS)
   const [activeProjectId, setActiveProjectId] = useState(SEED_PROJECTS[0].id)
   const [panelKey, setPanelKey] = useState(0)
+  const [previewImages, setPreviewImages] = useState<Record<string, string>>({})
 
   const activeProject = projects.find((p) => p.id === activeProjectId) ?? projects[0]
   const { specs, optionIndex } = activeProject
@@ -147,6 +149,15 @@ export function Dashboard() {
               <AestheticsCard aesthetic={active.aesthetic} />
               <SpatialCard ergonomics={active.ergonomics} />
               <BudgetCard budget={active.budget} maxBudgetInr={response.room_summary.max_budget_inr} />
+              <RoomPreviewCard
+                option={active}
+                specs={specs}
+                optionIndex={optionIndex}
+                cacheKey={`${activeProject.id}-${optionIndex}-${JSON.stringify(specs)}`}
+                images={previewImages}
+                onImage={(key, src) => setPreviewImages((prev) => ({ ...prev, [key]: src }))}
+                className="lg:col-span-2 2xl:col-span-3"
+              />
             </div>
           </main>
         </div>
