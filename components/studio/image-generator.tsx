@@ -40,17 +40,26 @@ export function ImageGenerator() {
     setIsLoading(true)
     setError(null)
     try {
-      const res = await fetch('/api/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: text, aspectRatio }),
-      })
-      const data = (await res.json()) as { image?: string; mediaType?: string; error?: string }
-      if (!res.ok || !data.image) throw new Error(data.error ?? 'Image generation failed.')
+      const pendingRatio = ASPECT_RATIOS.find((r) => r.value === aspectRatio)!
+      const baseSize = 1024
+      const isLandscape = pendingRatio.w >= pendingRatio.h
+      const width = isLandscape ? baseSize : Math.round(baseSize * (pendingRatio.w / pendingRatio.h))
+      const height = isLandscape ? Math.round(baseSize * (pendingRatio.h / pendingRatio.w)) : baseSize
+
+      // Add a random seed so identical prompts don't return cached identical images
+      const seed = Math.floor(Math.random() * 1000000)
+      const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(text)}?width=${width}&height=${height}&nologo=true&seed=${seed}`
+      
+      const res = await fetch(url)
+      if (!res.ok) throw new Error('Image generation failed.')
+      
+      const blob = await res.blob()
+      const src = URL.createObjectURL(blob)
+
       setImages((prev) => [
         {
           id: crypto.randomUUID(),
-          src: `data:${data.mediaType ?? 'image/png'};base64,${data.image}`,
+          src,
           prompt: text,
           aspectRatio,
         },
