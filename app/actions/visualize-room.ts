@@ -1,6 +1,3 @@
-'use server'
-
-import { generateImage } from 'ai'
 import type { RoomSpecs, RoomType } from '@/lib/dere-types'
 import { generateDesigns, ROOM_TYPE_LABELS } from '@/lib/dere-generate'
 
@@ -27,7 +24,6 @@ export type VisualizeResult = { ok: true; src: string } | { ok: false; error: st
 export async function visualizeRoom(specs: RoomSpecs, optionIndex: number): Promise<VisualizeResult> {
   if (!validate(specs, optionIndex)) return { ok: false, error: 'Invalid room specs.' }
 
-  // Rebuild the design server-side so the prompt only ever contains generator output.
   const option = generateDesigns(specs).options[optionIndex]
   const { aesthetic } = option
 
@@ -47,21 +43,18 @@ export async function visualizeRoom(specs: RoomSpecs, optionIndex: number): Prom
   ].join(' ')
 
   try {
-    const { image } = await generateImage({
-      model: 'bfl/flux-2-pro',
-      prompt,
-      aspectRatio: '3:2',
-    })
-    return { ok: true, src: `data:${image.mediaType};base64,${image.base64}` }
+    const seed = Math.floor(Math.random() * 1000000)
+    const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=1024&height=683&nologo=true&seed=${seed}`
+    
+    const res = await fetch(url)
+    if (!res.ok) throw new Error('Image generation failed.')
+    
+    const blob = await res.blob()
+    const src = URL.createObjectURL(blob)
+
+    return { ok: true, src }
   } catch (err) {
     console.error('[visualizeRoom]', err)
-    const message = err instanceof Error ? err.message : ''
-    if (/credit card/i.test(message)) {
-      return {
-        ok: false,
-        error: 'AI Gateway needs a credit card on file for your Vercel team to unlock free credits. Add one in Vercel → AI Gateway, then try again.',
-      }
-    }
     return { ok: false, error: 'Could not generate the preview. Please try again.' }
   }
 }
