@@ -34,24 +34,46 @@ export default function DesignGenerator() {
     setActiveTab(0);
     
     try {
-      const response = await fetch('/api/generate-design', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          roomType: formData.roomType,
-          width: Number(formData.width),
-          length: Number(formData.length),
-          budget: Number(formData.budget),
-          fixedFeatures: formData.fixedFeatures,
-        }),
-      });
+      // @ts-ignore - Chrome's experimental AI API
+      const ai = window.ai;
+      if (!ai) {
+        throw new Error("Gemini Nano (window.ai) is not available in your browser. Please enable the Prompt API in Chrome flags.");
+      }
+
+      const prompt = `You are an expert interior designer and architect. Create 3 distinct design options for a ${formData.roomType} measuring ${formData.width}ft x ${formData.length}ft. The total budget is $${formData.budget}. Consider these fixed features: ${formData.fixedFeatures}.
+
+Strictly return ONLY a valid JSON object conforming to the following structure:
+{
+  "options": [
+    {
+      "id": "unique-id",
+      "name": "Design Name",
+      "description": "Short description",
+      "style": "Style Name",
+      "colorPalette": ["#hex1", "#hex2", "#hex3", "#hex4"],
+      "estimatedCost": 1000,
+      "materials": ["Material 1", "Material 2"],
+      "furnitureSuggestions": ["Furniture 1", "Furniture 2"]
+    }
+  ]
+}
+Ensure the output is ONLY valid JSON, with exactly 3 options. Do not include markdown code blocks like \`\`\`json or any other text.`;
+
+      // Handle both new and old API versions for Chrome's Prompt API
+      // @ts-ignore
+      const session = ai.languageModel ? await ai.languageModel.create() : await ai.createTextSession();
+      const result = await session.prompt(prompt);
       
-      const data = await response.json();
+      // Clean up markdown block if it exists
+      const cleanedResult = result.replace(/^```(json)?\n?/i, '').replace(/\n?```$/i, '').trim();
+      const data = JSON.parse(cleanedResult);
+
       if (data && data.options) {
         setOptions(data.options);
       }
     } catch (error) {
       console.error('Error generating design:', error);
+      alert(error instanceof Error ? error.message : 'Failed to generate design. Ensure Gemini Nano is enabled and working.');
     } finally {
       setLoading(false);
     }
