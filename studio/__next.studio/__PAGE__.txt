@@ -1,0 +1,32 @@
+1:"$Sreact.fragment"
+2:"/DERE-AI/_next/static/chunks/0m0gfx7t1v1zm.js"
+3:I[39756,["$2"],"default"]
+4:I[37457,["$2"],"default"]
+5:I[2355,["$2"],"Analytics"]
+c:"/DERE-AI/_next/static/chunks/1ya2umjcu5d2w.js"
+d:I[22016,["$2","$c"],""]
+e:I[5014,["$2","$c"],"default"]
+f:I[18124,["$2","$c"],"ImageGenerator"]
+10:I[97367,["$2"],"OutletBoundary"]
+11:"$Sreact.suspense"
+14:"ViewportBoundary"
+15:I[97367,["$2"],"$14"]
+16:"MetadataBoundary"
+17:I[97367,["$2"],"$16"]
+18:I[27201,["$2"],"IconMark"]
+:HL["/DERE-AI/_next/static/chunks/13s2gdbtrvbi7.css","style"]
+7:X
+a:X
+a:C
+b:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-dvh bg-background","children":[["$","header",null,{"className":"sticky top-0 z-20 border-b border-border bg-card/90 backdrop-blur","children":["$","div",null,{"className":"flex h-14 items-center gap-3 px-4 md:px-6","children":[["$","$Ld",null,{"href":"/","className":"flex items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40","children":[["$","span",null,{"className":"flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground","children":["$","$Le",null,{"icon":{"name":"layers","size":24,"node":[["path",{"d":"M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z","key":"zw3jo"}],["path",{"d":"M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12","key":"1wduqc"}],["path",{"d":"M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17","key":"kqbvx6"}]],"aliases":["layers-3"]},"className":"size-4","aria-hidden":"true"}]}],["$","span",null,{"className":"text-sm font-semibold tracking-tight","children":"DERE AI"}]]}],["$","$Ld",null,{"href":"/","className":"ml-auto flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground","children":[["$","$Le",null,{"icon":{"name":"arrow-left","size":24,"node":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]]},"className":"size-4","aria-hidden":"true"}],"Back to dashboard"]}]]}]}],["$","main",null,{"className":"mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 md:px-6","children":[["$","div",null,{"className":"flex flex-col gap-1","children":[["$","p",null,{"className":"text-xs font-medium uppercase tracking-wider text-accent","children":"Image Studio"}],["$","h1",null,{"className":"text-balance text-2xl font-semibold tracking-tight md:text-3xl","children":"Generate images from a prompt"}],["$","p",null,{"className":"text-sm text-muted-foreground","children":"Powered by Gemini 3 Pro Image via Vercel AI Gateway."}]]}],["$","$Lf",null,{}]]}]]}],[["$","script","script-0",{"src":"/DERE-AI/_next/static/chunks/1ya2umjcu5d2w.js","async":true}]],["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]]}],"p":"$@13","v":null,"s":"$7"}}]]
+8:[["children",{"s":"studio","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]]}],"p":"$@9","v":"$a","s":"$7"},"c":"$Qb"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/DERE-AI/_next/static/chunks/13s2gdbtrvbi7.css","precedence":"next"}],["$","script","script-0",{"src":"/DERE-AI/_next/static/chunks/0m0gfx7t1v1zm.js","async":true}]],["$","html",null,{"lang":"en","className":"light WggDGG_variable z61v7q_variable","children":["$","body",null,{"className":"font-sans antialiased","children":[["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}],["$","$L5",null,{}]]}]}]]}],"p":"$@6","v":null,"s":"$7"},"c":"$Q8"},"h":{"r":["$","$1","h",{"children":[null,["$","$L15",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#f6f4ef"}],["$","meta","3",{"name":"color-scheme","content":"light"}]]}],["$","$L17",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$11",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Image Studio · DERE AI"}],["$","meta","1",{"name":"description","content":"Generate interior design images from a text prompt with Gemini 3 Pro Image."}],["$","meta","2",{"name":"generator","content":"v0.app"}],["$","link","3",{"rel":"icon","href":"/icon-light-32x32.png","media":"(prefers-color-scheme: light)"}],["$","link","4",{"rel":"icon","href":"/icon-dark-32x32.png","media":"(prefers-color-scheme: dark)"}],["$","link","5",{"rel":"icon","href":"/icon.svg","type":"image/svg+xml"}],["$","link","6",{"rel":"apple-touch-icon","href":"/apple-icon.png"}],["$","$L18","7",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@19","v":null,"s":"$7"}},"a":"$@1a","u":"$@1b","b":"oeRq88ZzIBxGIHgSrnP7X"}
+12:null
+7:300
+1b:true
+7:C
+1a:0
+9:"$undefined"
+6:"$undefined"
+19:"$undefined"
+13:"$undefined"
